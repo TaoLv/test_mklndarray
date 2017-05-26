@@ -25,7 +25,7 @@ class TestMKLNdarray(unittest.TestCase):
     def test_to_ndarray(self):
         a = mkl.MKLNdarray.zeros((4, 4), mkl.MKLNdarray.float32)
         b = numpy.zeros((4, 4)).astype(numpy.float32)
-        c = a.__array__()
+        c = numpy.asarray(a)   # a.__array__()
 
         assert numpy.allclose(b, c)
 
@@ -38,7 +38,7 @@ class TestMKLNdarray(unittest.TestCase):
         assert b.dtype == 'float32'
         assert b.ndim == 2
 
-        c = b.__array__()
+        c = numpy.asarray(b)
 
         assert numpy.allclose(a, c)
 
@@ -56,7 +56,7 @@ class TestMKLNdarray(unittest.TestCase):
         assert a.base is None
         assert c.base is a
 
-        d = c.__array__()
+        d = numpy.asarray(c)
         assert numpy.allclose(b, d)
 
 
