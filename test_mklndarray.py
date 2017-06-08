@@ -3,7 +3,7 @@ import theano
 import numpy
 import unittest
 
-sys.path[0:0] = theano.config.compiledir
+sys.path.insert(0, theano.config.compiledir)
 import mkl_ndarray   # noqa
 from mkl_ndarray import mkl_ndarray as mkl   # noqa
 
