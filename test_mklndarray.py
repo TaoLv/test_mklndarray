@@ -54,7 +54,7 @@ class TestMKLNdarray(unittest.TestCase):
         assert c.ndim == 2
 
         assert a.base is None
-        assert c.base is a
+        assert c.base is None
 
         d = numpy.asarray(c)
         assert numpy.allclose(b, d)
